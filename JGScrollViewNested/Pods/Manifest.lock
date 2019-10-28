@@ -1,0 +1,28 @@
+PODS:
+  - FDFullscreenPopGesture (1.1)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
+
+DEPENDENCIES:
+  - FDFullscreenPopGesture (= 1.1)
+  - Masonry (= 1.0.2)
+  - MBProgressHUD (~> 1.0.0)
+  - MJRefresh (= 3.1.12)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FDFullscreenPopGesture
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+
+SPEC CHECKSUMS:
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+
+PODFILE CHECKSUM: fb77094d3871fa6be1f92232d9c6df991c2cd1d8
+
+COCOAPODS: 1.5.2

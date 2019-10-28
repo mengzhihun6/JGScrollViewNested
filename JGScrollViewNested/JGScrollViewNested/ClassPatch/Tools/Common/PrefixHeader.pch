@@ -1,0 +1,89 @@
+//
+//  PrefixHeader.pch
+//  JGScrollViewNested
+//
+//  Created by 郭军 on 2019/10/26.
+//  Copyright © 2019 JG. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "MBProgressHUD.h"
+#import <Masonry.h>
+#import <MJRefresh.h>
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
+#import "JGCategoryHeader.h"
+#import "JGConst.h"
+
+//Log
+#define JGLog(fmt, ...) NSLog((@"%s [Line %d] " fmt),__PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define JGLogFunc JGLog(@"%s", __func__);
+
+
+/**************************  强弱引用  *******************************/
+/** 弱引用 */
+#define WEAKSELF __weak typeof(self) weakSelf = self
+#define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
+/** 避免self的提前释放 */
+#define STRONGSELF __weak typeof(weakSelf) strongSelf = weakSelf
+
+
+/*******************************  尺寸  ***********************************/
+#define kDeviceHight [UIScreen mainScreen].bounds.size.height
+#define kDeviceWidth [UIScreen mainScreen].bounds.size.width
+
+//iphoneX 适配
+#define SJHeight ([[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 86 : 64)  //导航栏高度
+#define IphoneXHeight ([[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 22 : 0)  //导航栏增加高度
+#define IphoneXTabbarH ([[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 83 : 49)  //tabbar高度
+#define IphoneXTH ([[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 34 : 0)  //tabbar增加高度
+
+//宽高等比缩放
+#define kWidthScale(R) ((R)*(kDeviceWidth/375.0f)) //这里的375我是针对6为标准适配的,如果需要其他标准可以修改
+#define kHeightScale(R) kWidthScale(R)  //这里我是针对6为标准适配的,如果需要其他标准可以修改
+
+
+/***********************  快速设置  *************************/
+#define JGApplication  [UIApplication sharedApplication]
+#define JGUserDefaults [NSUserDefaults standardUserDefaults]
+#define JGNotification [NSNotificationCenter defaultCenter] //通知
+#define JGFont(size) [UIFont systemFontOfSize:size] //字体尺寸
+#define JGBoldFont(size1) [UIFont fontWithName:@"Helvetica-Bold" size:size1] //加粗字体尺寸
+
+
+/*************************  颜色  *********************************/
+//颜色定义
+#define JGRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define JGRandomColor   JGRGBColor(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255))
+#define JGMainColor [UIColor colorWithHexCode:@"#E54B4B"]
+#define JGPinkColor [UIColor colorWithHexCode:@"#FDE7E7"]
+#define JG28Color [UIColor colorWithHexCode:@"#282828"]
+#define JG50Color [UIColor colorWithHexCode:@"#505050"]
+#define JG666Color [UIColor colorWithHexCode:@"#666666"]
+#define JGF2Color [UIColor colorWithHexCode:@"#F2F2F2"]
+#define JGLineColor [UIColor colorWithHexCode:@"#C1C1C1"]
+#define JG4CColor [UIColor colorWithHexCode:@"#4C4C4C"]
+
+#define JGHexColor(hexCode) [UIColor colorWithHexCode:hexCode]
+
+
+/**********纯色图片**********/
+#define JGImage(name) [UIImage imageNamed:name]
+#define JGWhiteImage [UIImage imageWithColor:[UIColor whiteColor]]
+#define JGMainColorImage [UIImage imageWithColor:JGMainColor]
+#define JGPinkColorImage [UIImage imageWithColor:JGPinkColor]
+//根据颜色值生成图片
+#define JGColorImage(hexCode) [UIImage imageWithColor:JGHexColor(hexCode)]
+//根据图片生成白色图片
+#define JGWhiteColorImage(name) [[UIImage imageNamed:name] imageChangeColor:[UIColor whiteColor]]
+
+
+
+
+
+#endif /* PrefixHeader_pch */
